@@ -47,10 +47,38 @@
         }
         ctx.stroke();
       }
-      //   ctx.beginPath();
-      //   ctx.moveTo(0, 10);
-      //   ctx.lineTo(500, 10);
-      //   ctx.stroke();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "#FFFFFF";
+      ctx.fillStyle = "#00FF00";
+      ctx.lineWidth = 2;
+      ctx.moveTo(50, 50);
+      ctx.lineTo(150, 250);
+      ctx.lineTo(250, 170);
+      ctx.stroke();
+      ctx.fillText("(50, 50)", 30, 40);
+      ctx.fillText("(150, 250)", 130, 260);
+      ctx.fillText("(250, 170)", 255, 175);
+      ctx.fill();
+      ctx.lineTo(320, 280);
+
+      ctx.beginPath();
+      ctx.moveTo(50, 250);
+      ctx.quadraticCurveTo(25, 300, 50, 350);
+      ctx.quadraticCurveTo(100, 375, 150, 350);
+      ctx.closePath();
+      ctx.moveTo(230, 360);
+      ctx.quadraticCurveTo(255, 340, 270, 360);
+      ctx.quadraticCurveTo(255, 340, 270, 310);
+      ctx.closePath();
+      ctx.moveTo(250, 50);
+      ctx.quadraticCurveTo(310, 60, 370, 50);
+      ctx.quadraticCurveTo(400, 75, 370, 100);
+      ctx.closePath();
+      ctx.strokeStyle = "#FFFF00";
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      ctx.stroke();
     </script>
   </body>
 </html>
