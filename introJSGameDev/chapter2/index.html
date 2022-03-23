@@ -16,10 +16,15 @@
     </style>
   </head>
   <body>
-    <canvas id="asteroids" width="500" height="500"></canvas>
+    <div width="50%" style="padding: 5px">
+      <canvas id="asteroids"></canvas>
+    </div>
+
     <script>
       var canvas = document.getElementById("asteroids");
       var ctx = canvas.getContext("2d");
+      canvas.height = window.innerWidth - 25;
+      canvas.width = window.innerWidth - 25;
 
       ctx.strokeStyle = "#00FF00";
       ctx.lineWidth = 0.75;

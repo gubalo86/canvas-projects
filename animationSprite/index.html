@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #image {
+        height: 62px;
+        width: 60px;
+        background-repeat: no-repeat;
+        /*background: url('https://miro.medium.com/max/1400/1*WhDjw8GiV5o0flBXM4LXEw.png') 0px 0px;*/
+        background: url("../assets/coin.png") 0px 0px;
+        border: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo" style="background-color: black">
+      <p
+        id="image"
+        onmouseover="animateScript()"
+        onmouseout="stopAnimate()"
+      ></p>
+    </div>
+  </body>
+  <script>
+    var tID; //we will use this variable to clear the setInterval()
+
+    function stopAnimate() {
+      clearInterval(tID);
+    } //end of stopAnimate()
+
+    function animateScript() {
+      //window.requestAnimationFrame(animateScript);
+      var position = 63; //start position for the image slicer
+      const interval = 100; //100 ms of interval for the setInterval()
+      const diff = 63; //diff as a variable for position offset
+
+      tID = setInterval(() => {
+        document.getElementById(
+          "image"
+        ).style.backgroundPosition = `-${position}px 0px`;
+        //we use the ES6 template literal to insert the variable "position"
+
+        if (position < 374) {
+          position = position + diff;
+        }
+        //we increment the position by 256 each time
+        else {
+          position = 63;
+        }
+        //reset the position to 256px, once position exceeds 1536px
+      }, interval); //end of setInterval
+    } //end of animateScript()
+
+    //window.requestAnimationFrame(animateScript);
+  </script>
+</html>
