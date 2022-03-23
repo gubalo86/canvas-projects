@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="ctx" tabindex=0 width=900 height=500 style="border:1px solid #000000;" onkeypress="movePlayer(event)"
+        onkeyup="keyUp(event)"></canvas>
+    <script>
+
+        var canvas = document.getElementById("ctx");
+        var ctx = canvas.getContext("2d");
+        canvas.focus();
+        canvas.addEventListener("keydown", movePlayer);
+
+        var x_new = 50;
+        var y_new = 50;
+
+        var keys = {
+            up: false,
+            right: false,
+            left: false
+        };
+
+        var isJumping = false;
+        var speed = 10;
+
+        function movePlayer(event) {
+            switch (event.keyCode) {
+                //Right key down:
+                case 39:
+                    keys["right"] = true;
+                    break;
+                //Left key down:
+                case 37:
+                    keys["left"] = true;
+                    break;
+                //Up key down:
+                case 38:
+                    keys["up"] = true;
+                    isJumping = true;
+                    break;
+            }
+        }
+
+        function keyUp(event) {
+            switch (event.keyCode) {
+                //Up key up:
+                case 38:
+                    isJumping = false;
+                    keys["up"] = false;
+                    break;
+                //Right key up:
+                case 39:
+                    keys["right"] = false;
+                    break;
+                //Left key up:
+                case 37:
+                    keys["left"] = false;
+                    break;
+            }
+        }
+
+        function update() {
+            window.requestAnimationFrame(update);
+            ctx.clearRect(0, 0, 900, 500);
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.fillRect(x_new, y_new, 50, 50);
+
+            ctx.beginPath();
+            ctx.rect(0, 490, 900, 10);
+            ctx.fillStyle = "green";
+            ctx.fill();
+
+            if (keys["up"] && !keys["right"] && !keys["left"]) {
+                y_new -= speed;
+            } else if (keys["right"] && !keys["up"]) {
+                x_new += speed;
+            } else if (keys["left"] && !keys["up"]) {
+                x_new -= speed;
+            } else if (keys["up"] && keys["right"]) {
+                y_new -= speed;
+                x_new += speed;
+            } else if (keys["up"] && keys["left"]) {
+                y_new -= speed;
+                x_new -= speed;
+            }
+
+            if (y_new < 440 && !isJumping) {
+                y_new += speed;
+            }
+
+        }
+
+        window.requestAnimationFrame(update);
+
+    </script>
+</body>
+
+</html>
