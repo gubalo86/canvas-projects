@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <canvas id="ctx" tabindex=0 width=900 height=500 style="border:1px solid #000000;" onkeypress="movePlayer(event)"
+    <canvas id="ctx" tabindex=0 width=500 height=500 style="border:1px solid #000000;" onkeypress="movePlayer(event)"
         onkeyup="keyUp(event)"></canvas>
     <script>
 
@@ -22,8 +22,8 @@
         canvas.focus();
         canvas.addEventListener("keydown", movePlayer);
 
-        var x_new = 50;
-        var y_new = 50;
+        var x_new =(canvas.width/2) - (50/2);
+        var y_new = (canvas.height/2) - (50/2);
 
         var keys = {
             up: false,
@@ -72,13 +72,13 @@
 
         function update() {
             window.requestAnimationFrame(update);
-            ctx.clearRect(0, 0, 900, 500);
+            ctx.clearRect(0, 0, 500, 500);
             ctx.fillStyle = "black";
             ctx.beginPath();
             ctx.fillRect(x_new, y_new, 50, 50);
 
             ctx.beginPath();
-            ctx.rect(0, 490, 900, 10);
+            ctx.rect(0, 490, 500, 10);
             ctx.fillStyle = "green";
             ctx.fill();
 
