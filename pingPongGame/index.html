@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ping Pong</title>
+    <!-- <script src="../scripts/jquery-ui.min.js"></script> -->
+    <!-- <script src="../scripts/jquery-ui.js"></script> -->
+    <script src="../scripts/jquery.js"></script>
+    <script src="./pingPong.js"></script>
+    <style>
+      #playground {
+        background: #e0ffe0;
+        width: 400px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+      }
+      #ball {
+        background: #fbb;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 150px;
+        top: 100px;
+        border-radius: 10px;
+      }
+      .paddle {
+        background: #bbf;
+        left: 50px;
+        top: 70px;
+        position: absolute;
+        width: 30px;
+        height: 70px;
+      }
+      #paddleB {
+        left: 320px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Ping Pong</h1>
+    </header>
+    <footer>This is an example of creating a Ping Pong Game.</footer>
+    <div id="game">
+      <div id="playground">
+        <div id="paddleA" class="paddle"></div>
+        <div id="paddleB" class="paddle"></div>
+        <div id="ball"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // $(function () {
+    //   //alert("Welcome to the Ping Pong battle.");
+    // });
+
+    $(document).ready(function () {
+      //alert("Welcome to the Ping Pong battle. 2");
+    });
+  </script>
+</html>
